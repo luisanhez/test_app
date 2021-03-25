@@ -5,33 +5,41 @@
   <h1>Prueba Tecnica</h1>
 
   <form class="form__content" [formGroup]="form" (ngSubmit)="submit()">
-    <ion-item lines="full">
+    <ion-item lines="full" [class.error]="emailError && formSubmitted">
       <ion-icon name="person-outline" slot="start"></ion-icon>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input
+        formControlName="email"
+        name="email"
+        type="email"
+        placeholder="Email"
+      ></ion-input>
     </ion-item>
 
-    <span *ngIf="false" class="error-message">El email introducido no es válido.</span>
+    <span *ngIf="emailError && formSubmitted" class="error-message">
+      El email introducido no es válido
+    </span>
 
-    <ion-item lines="full">
+    <ion-item lines="full" [class.error]="passwordError && formSubmitted">
       <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input
+        formControlName="password"
+        name="password"
+        type="password"
+        placeholder="Contraseña"
+      ></ion-input>
     </ion-item>
 
-    <span *ngIf="false" class="error-message">Contraseña inferior a 5 carácteres.</span>
+    <span *ngIf="passwordError && formSubmitted" class="error-message">
+      Contraseña inferior a 5 carácteres
+    </span>
 
     <ion-item class="no-padding" lines="none">
-      <ion-label> Recordar </ion-label>
+      <ion-label class="label"> Recordar </ion-label>
       <ion-toggle slot="end"></ion-toggle>
     </ion-item>
 
-    <ion-item class="desktop-button" lines="none">
-      <ion-button type="submit" shape="round" fill="outline">Acceder</ion-button>
-    </ion-item>
-
-    <ion-item class="mobile-button no-padding" lines="none">
-      <ion-button type="submit" expand="full">Acceder</ion-button>
+    <ion-item class="no-padding" lines="none">
+      <button type="submit" expand="full">Acceder</button>
     </ion-item>
   </form>
 </div>

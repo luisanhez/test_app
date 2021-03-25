@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
   private readonly emailRegEx = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.+[a-zA-Z0-9-]{2,}){1}$/;
 
   form = new FormGroup({
@@ -20,7 +20,23 @@ export class LoginFormComponent implements OnInit {
     ]),
     remember: new FormControl(false),
   });
-  constructor() {}
 
-  ngOnInit() {}
+  formSubmitted = false;
+
+  public submit() {
+    this.formSubmitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+
+    console.log('Login: OK');
+  }
+
+  get emailError() {
+    return this.form.get('email').errors;
+  }
+
+  get passwordError() {
+    return this.form.get('password').errors;
+  }
 }
