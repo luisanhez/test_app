@@ -5,27 +5,33 @@
   <h1>Prueba Tecnica</h1>
 
   <form class="form__content" [formGroup]="form" (ngSubmit)="submit()">
-    <ion-item>
+    <ion-item lines="full">
       <ion-icon name="person-outline" slot="start"></ion-icon>
       <ion-label position="floating">Email</ion-label>
       <ion-input type="email"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <span *ngIf="false" class="error-message">El email introducido no es válido.</span>
+
+    <ion-item lines="full">
       <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
       <ion-label position="floating">Password</ion-label>
       <ion-input type="password"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <span *ngIf="false" class="error-message">Contraseña inferior a 5 carácteres.</span>
+
+    <ion-item class="no-padding" lines="none">
       <ion-label> Recordar </ion-label>
       <ion-toggle slot="end"></ion-toggle>
     </ion-item>
 
-    <ion-item lines="none">
-      <ion-button type="submit" shape="round" fill="outline"
-        >Acceder</ion-button
-      >
+    <ion-item class="desktop-button" lines="none">
+      <ion-button type="submit" shape="round" fill="outline">Acceder</ion-button>
+    </ion-item>
+
+    <ion-item class="mobile-button no-padding" lines="none">
+      <ion-button type="submit" expand="full">Acceder</ion-button>
     </ion-item>
   </form>
 </div>
