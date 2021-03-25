@@ -1,0 +1,64 @@
+:host {
+  display: block;
+
+  ion-avatar {
+    --border-radius: none;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    color: black;
+    display: none;
+    font-size: 18px;
+
+    @media (min-width: 960px) {
+      display: block;
+    }
+  }
+
+  ion-item {
+    --border-color: grey;
+    --background: none;
+    color: grey;
+    margin: 15px 0 ;
+
+    ion-icon {
+      color: grey;
+    }
+
+    ion-button {
+      margin: 0 auto;
+      text-transform: capitalize;
+      width: 40%;
+      height: 40px;
+      color: black;
+      font-size: 16px;
+    }
+  }
+
+  .form {
+    &__container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      margin: 0 auto;
+      background: none;
+      padding: 15px;
+
+      @media (min-width: 960px) {
+        width: 400px;
+        background: white;
+
+      }
+    }
+
+    &__content {
+      width: 100%;
+      background: white;
+      padding: 0 15px;
+    }
+  }
+}

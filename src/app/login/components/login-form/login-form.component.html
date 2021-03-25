@@ -1,0 +1,31 @@
+<div class="form__container">
+  <ion-avatar>
+    <img src="../../assets/imgs/logo.jpg" />
+  </ion-avatar>
+  <h1>Prueba Tecnica</h1>
+
+  <form class="form__content" [formGroup]="form" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label> Recordar </ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-button type="submit" shape="round" fill="outline"
+        >Acceder</ion-button
+      >
+    </ion-item>
+  </form>
+</div>
