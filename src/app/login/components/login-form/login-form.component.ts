@@ -23,7 +23,7 @@ export class LoginFormComponent {
 
   formSubmitted = false;
 
-  public submit() {
+  submit() {
     this.formSubmitted = true;
     if (this.form.invalid) {
       return;
