@@ -5,7 +5,7 @@
   <h1>Prueba Tecnica</h1>
 
   <form class="form__content" [formGroup]="form" (ngSubmit)="submit()">
-    <ion-item lines="full" [class.error]="emailError && formSubmitted">
+    <ion-item lines="full" [class.error]="email.errors && submitted">
       <ion-icon name="person-outline" slot="start"></ion-icon>
       <ion-input
         formControlName="email"
@@ -15,11 +15,11 @@
       ></ion-input>
     </ion-item>
 
-    <span *ngIf="emailError && formSubmitted" class="error-message">
-      El email introducido no es válido
-    </span>
+    <span *ngIf="email.errors && submitted" class="error-message">{{
+      ERROR_MESSAGES.email
+    }}</span>
 
-    <ion-item lines="full" [class.error]="passwordError && formSubmitted">
+    <ion-item lines="full" [class.error]="password.errors && submitted">
       <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
       <ion-input
         formControlName="password"
@@ -29,9 +29,9 @@
       ></ion-input>
     </ion-item>
 
-    <span *ngIf="passwordError && formSubmitted" class="error-message">
-      Contraseña inferior a 5 carácteres
-    </span>
+    <span *ngIf="password.errors && submitted" class="error-message">{{
+      ERROR_MESSAGES.password
+    }}</span>
 
     <ion-item class="no-padding" lines="none">
       <ion-label class="label"> Recordar </ion-label>

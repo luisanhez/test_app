@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -8,35 +13,49 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent {
   private readonly emailRegEx = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.+[a-zA-Z0-9-]{2,}){1}$/;
+  readonly ERROR_MESSAGES = {
+    email: 'El email introducido no es válido',
+    password: 'Contraseña inferior a 5 carácteres',
+  };
 
-  form = new FormGroup({
-    email: new FormControl('', [
-      Validators.required,
-      Validators.pattern(this.emailRegEx),
-    ]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-    ]),
-    remember: new FormControl(false),
-  });
+  form: FormGroup;
+  submitted = false;
 
-  formSubmitted = false;
+  constructor() {
+    this.initForm();
+  }
 
   submit() {
-    this.formSubmitted = true;
+    this.submitted = true;
+
     if (this.form.invalid) {
       return;
     }
 
+    this.initForm();
+    this.submitted = false;
     console.log('Login: OK');
   }
 
-  get emailError() {
-    return this.form.get('email').errors;
+  get email(): AbstractControl {
+    return this.form.get('email');
   }
 
-  get passwordError() {
-    return this.form.get('password').errors;
+  get password(): AbstractControl {
+    return this.form.get('password');
+  }
+
+  private initForm() {
+    this.form = new FormGroup({
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern(this.emailRegEx),
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      remember: new FormControl(false),
+    });
   }
 }
