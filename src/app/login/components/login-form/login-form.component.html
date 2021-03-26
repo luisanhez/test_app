@@ -2,10 +2,10 @@
   <ion-avatar>
     <img src="../../assets/imgs/logo.jpg" />
   </ion-avatar>
-  <h1>Prueba Tecnica</h1>
+  <h1>Prueba Técnica</h1>
 
   <form class="form__content" [formGroup]="form" (ngSubmit)="submit()">
-    <ion-item lines="full" [class.error]="email.errors && submitted">
+    <ion-item lines="full">
       <ion-icon name="person-outline" slot="start"></ion-icon>
       <ion-input
         formControlName="email"
@@ -19,7 +19,7 @@
       ERROR_MESSAGES.email
     }}</span>
 
-    <ion-item lines="full" [class.error]="password.errors && submitted">
+    <ion-item lines="full">
       <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
       <ion-input
         formControlName="password"
@@ -34,7 +34,7 @@
     }}</span>
 
     <ion-item class="no-padding" lines="none">
-      <ion-label class="label"> Recordar </ion-label>
+      <ion-label class="label">Recordar</ion-label>
       <ion-toggle slot="end"></ion-toggle>
     </ion-item>
 

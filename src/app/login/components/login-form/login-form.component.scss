@@ -30,7 +30,6 @@
     --border-color: grey;
     --background: none;
     --highlight-color-valid: grey;
-    --highlight-color-invalid: grey;
     color: grey;
     margin: 15px 20px;
 
@@ -105,9 +104,5 @@
   .label {
     color: black;
     font-weight: 500;
-  }
-
-  .error {
-    --highlight-color-invalid: var(--ion-color-danger);;
   }
 }

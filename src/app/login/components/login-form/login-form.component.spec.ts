@@ -12,7 +12,7 @@ describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
   let fixture: ComponentFixture<LoginFormComponent>;
   let emailInput: AbstractControl;
-  let psasswordInput: AbstractControl;
+  let passwordInput: AbstractControl;
 
   beforeEach(
     waitForAsync(() => {
@@ -25,7 +25,7 @@ describe('LoginFormComponent', () => {
       component = fixture.componentInstance;
       fixture.detectChanges();
       emailInput = component.email;
-      psasswordInput = component.email;
+      passwordInput = component.email;
     })
   );
 
@@ -39,7 +39,7 @@ describe('LoginFormComponent', () => {
     expect(emailInput.errors).toBeFalsy();
   });
 
-  it('should show error if email doesn t match with the regular expression on submint', () => {
+  it('should show error if email does not match with the regular expression on submit', () => {
     emailInput.setValue('email@gmail');
 
     submitForm();
@@ -53,8 +53,8 @@ describe('LoginFormComponent', () => {
     expect(errorMessage).toEqual(component.ERROR_MESSAGES.email);
   });
 
-  it('should show error if password doesn t match with the minlength on submint', () => {
-    psasswordInput.setValue('pass');
+  it('should show error if password does not match with the min length on submit', () => {
+    passwordInput.setValue('pass');
 
     submitForm();
     fixture.detectChanges();
@@ -63,7 +63,7 @@ describe('LoginFormComponent', () => {
       By.css('.error-message')
     )[1].nativeNode.innerText;
 
-    expect(psasswordInput.errors).toBeTruthy();
+    expect(passwordInput.errors).toBeTruthy();
     expect(errorMessage).toEqual(component.ERROR_MESSAGES.password);
   });
 
